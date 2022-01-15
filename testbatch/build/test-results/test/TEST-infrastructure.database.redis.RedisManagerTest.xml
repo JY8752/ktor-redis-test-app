@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="infrastructure.database.redis.RedisManagerTest" tests="25" skipped="0" failures="0" errors="0" timestamp="2022-01-14T23:09:46" hostname="mba.local" time="1.354">
+  <properties/>
+  <testcase name="1件のレコードの登録取得ができること" classname="infrastructure.database.redis.RedisManagerTest" time="0.166"/>
+  <testcase name="レコードがまだ存在していない" classname="infrastructure.database.redis.RedisManagerTest" time="0.034"/>
+  <testcase name="レコードの値を上書きできること" classname="infrastructure.database.redis.RedisManagerTest" time="0.025"/>
+  <testcase name="複数レコードの登録取得ができること" classname="infrastructure.database.redis.RedisManagerTest" time="0.023"/>
+  <testcase name="レコードがまだ存在していない:複数" classname="infrastructure.database.redis.RedisManagerTest" time="0.053"/>
+  <testcase name="複数レコードの登録で上書きできること" classname="infrastructure.database.redis.RedisManagerTest" time="0.046"/>
+  <testcase name="レコードが削除できること" classname="infrastructure.database.redis.RedisManagerTest" time="0.028"/>
+  <testcase name="レコードが複数削除できること" classname="infrastructure.database.redis.RedisManagerTest" time="0.024"/>
+  <testcase name="存在しないレコードを削除" classname="infrastructure.database.redis.RedisManagerTest" time="0.017"/>
+  <testcase name="Hash型のレコードの登録取得ができること" classname="infrastructure.database.redis.RedisManagerTest" time="0.037"/>
+  <testcase name="Hash型: レコードがまだ存在しない" classname="infrastructure.database.redis.RedisManagerTest" time="0.031"/>
+  <testcase name="Hash型のレコードで上書きできること" classname="infrastructure.database.redis.RedisManagerTest" time="0.053"/>
+  <testcase name="Hash型のレコードのkeyが全て取得できること" classname="infrastructure.database.redis.RedisManagerTest" time="0.033"/>
+  <testcase name="Hash型のレコードのvalueが全て取得できること" classname="infrastructure.database.redis.RedisManagerTest" time="0.052"/>
+  <testcase name="Hash型のレコードのkey,valueが全て取得できること" classname="infrastructure.database.redis.RedisManagerTest" time="0.07"/>
+  <testcase name="Set型:1件のレコードを登録取得ができること" classname="infrastructure.database.redis.RedisManagerTest" time="0.153"/>
+  <testcase name="Set型:既にレコードが存在している時値が追加されること" classname="infrastructure.database.redis.RedisManagerTest" time="0.032"/>
+  <testcase name="Set型:レコードが存在しない" classname="infrastructure.database.redis.RedisManagerTest" time="0.037"/>
+  <testcase name="Set型:要素を削除できること" classname="infrastructure.database.redis.RedisManagerTest" time="0.025"/>
+  <testcase name="Set型:要素を複数削除できること" classname="infrastructure.database.redis.RedisManagerTest" time="0.021"/>
+  <testcase name="Set型:存在しない要素を削除" classname="infrastructure.database.redis.RedisManagerTest" time="0.055"/>
+  <testcase name="Set型:存在しないレコードを削除" classname="infrastructure.database.redis.RedisManagerTest" time="0.032"/>
+  <testcase name="存在するkeyを取得できること" classname="infrastructure.database.redis.RedisManagerTest" time="0.138"/>
+  <testcase name="isExistKey" classname="infrastructure.database.redis.RedisManagerTest" time="0.067"/>
+  <testcase name="型違いでkeyが既に使われていた場合にエラーとなること" classname="infrastructure.database.redis.RedisManagerTest" time="0.027"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+]]></system-err>
+</testsuite>
