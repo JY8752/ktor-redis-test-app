@@ -1,15 +1,17 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-  kotlin("jvm") version "1.5.31"
+    application
+    kotlin("jvm") version "1.5.31"
+}
+
+application {
+    mainClass.set("io.ktor.server.netty.EngineMain")
 }
 
 allprojects {
- group = "me.user"
- version = "1.0-SNAPSHOT"
- 
  repositories {
-      mavenCentral()
+     mavenCentral()
  }
 
  apply(plugin = "kotlin")
@@ -29,10 +31,29 @@ allprojects {
 }
 
 //admin
-//configure(listOf(project("testadmin"))) {
-//    dependencies {
-//    }
-//}
+configure(listOf(project("testadmin"))) {
+    val ktor_version: String by project
+    val kotlin_version: String by project
+    val logback_version: String by project
+
+    group = "testadmin"
+    version = "0.0.1"
+
+    dependencies {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
+        implementation("io.ktor:ktor-server-netty:$ktor_version")
+        implementation("ch.qos.logback:logback-classic:$logback_version")
+        implementation("io.ktor:ktor-server-core:$ktor_version")
+        implementation("io.ktor:ktor-thymeleaf:$ktor_version")
+        testImplementation("io.ktor:ktor-server-tests:$ktor_version")
+    }
+
+    kotlin.sourceSets["main"].kotlin.srcDirs("src")
+    kotlin.sourceSets["test"].kotlin.srcDirs("test")
+
+    sourceSets["main"].resources.srcDirs("resources")
+    sourceSets["test"].resources.srcDirs("testresources")
+}
 //batch
 configure(listOf(project("testbatch"))) {
     dependencies {

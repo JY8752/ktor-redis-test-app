@@ -6,6 +6,6 @@ pluginManagement {
 }
 rootProject.name = "ktor-redis-test-app"
 
-//include("testadmin")
+include("testadmin")
 include("testbatch")
 include("testcommon")
