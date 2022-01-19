@@ -24,11 +24,7 @@ fun Application.module(testing: Boolean = false) {
 
     routing {
         get("/") {
-            call.respondText("HELLO WORLD!", contentType = ContentType.Text.Plain)
-        }
-
-        get("/html-thymeleaf") {
-            call.respond(ThymeleafContent("index", mapOf("user" to ThymeleafUser(1, "user1"))))
+            call.respond(ThymeleafContent("index", mapOf("user" to ThymeleafUser(1, "user3"))))
         }
     }
 }
