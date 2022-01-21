@@ -40,6 +40,7 @@ configure(listOf(project("testadmin"))) {
     version = "0.0.1"
 
     dependencies {
+        implementation(project(":testcommon"))
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
         implementation("io.ktor:ktor-server-netty:$ktor_version")
         implementation("ch.qos.logback:logback-classic:$logback_version")

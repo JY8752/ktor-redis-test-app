@@ -24,7 +24,10 @@ fun Application.module(testing: Boolean = false) {
 
     routing {
         get("/") {
-            call.respond(ThymeleafContent("index", mapOf("user" to ThymeleafUser(1, "user3"))))
+            call.respond(ThymeleafContent("index", mapOf(
+                "tags" to ThymeleafUser(1, "user3"),
+                "latestContents" to ""
+            )))
         }
     }
 }
