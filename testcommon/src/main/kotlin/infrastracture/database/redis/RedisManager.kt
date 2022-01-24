@@ -70,6 +70,26 @@ interface RedisManager {
     fun removeSetValue(key: String, vararg member: String): Long
 
     /**
+     * list型のレコードから値を全て取得する.
+     */
+    fun getListAllValue(key: String): List<String>
+
+    /**
+     * list型のレコードから値を取得する.
+     */
+    fun getListValue(key: String, start: Long, end: Long): List<String>
+
+    /**
+     * list型に値を追加する.
+     */
+    fun setLeftListValue(key: String, vararg value: String): Long
+
+    /**
+     * list型に値を追加する.
+     */
+    fun setRightListValue(key: String, vararg value: String): Long
+
+    /**
      * レコードを削除する.
      */
     fun delete(vararg keys: String): Long
@@ -88,4 +108,5 @@ interface RedisManager {
      * 指定のキーでレコードが存在するか.
      */
     fun isExistKey(key: String): Boolean
+
 }

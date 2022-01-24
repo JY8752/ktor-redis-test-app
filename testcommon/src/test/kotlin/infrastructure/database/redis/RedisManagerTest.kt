@@ -198,6 +198,59 @@ class RedisManagerTest : StringSpec() {
         "Set型:存在しないレコードを削除" {
             redis.removeSetValue("key", "member") shouldBe 0L
         }
+        "List型:新規でレコードを作成できること" {
+            val key = "key"
+            val values = arrayOf("value1", "value2")
+            redis.setLeftListValue(key, *values) shouldBe 2L
+        }
+        "List型:既存レコードに値を追加できること" {
+            //一旦list型のレコード作成
+            val key = "key"
+            val values = arrayOf("value1", "value2")
+            redis.setRightListValue(key, *values)
+
+            //追加
+            redis.setRightListValue(key, "value3") shouldBe 3L
+
+            redis.getListAllValue(key) shouldBe listOf("value1", "value2", "value3")
+
+        }
+        "List型:レコードを取得できること" {
+            //一旦list型のレコード作成
+            val key = "key"
+            val values = arrayOf("value1", "value2")
+            redis.setRightListValue(key, *values)
+
+            redis.getListValue(key, 1, 2) shouldBe listOf("value2")
+        }
+        "List型:レコードを全て取得できること" {
+            //一旦list型のレコード作成
+            val key = "key"
+            val values = arrayOf("value1", "value2")
+            redis.setRightListValue(key, *values)
+
+            redis.getListAllValue(key) shouldBe listOf("value1", "value2")
+        }
+        "List型:左から値が追加できていること" {
+            //一旦レコード作成
+            val key = "key"
+            val values = arrayOf("value2", "value1")
+            redis.setLeftListValue(key, *values)
+
+            redis.setLeftListValue(key, "leftValue")
+
+            redis.getListAllValue(key) shouldBe listOf("leftValue", "value1", "value2")
+        }
+        "List型:右から値が追加できていること" {
+            //一旦レコード作成
+            val key = "key"
+            val values = arrayOf("value1", "value2")
+            redis.setRightListValue(key, *values)
+
+            redis.setRightListValue(key, "rightValue")
+
+            redis.getListAllValue(key) shouldBe listOf("value1", "value2", "rightValue")
+        }
         "存在するkeyを取得できること" {
             //string型
             redis.setStringValue("key1", "value1")

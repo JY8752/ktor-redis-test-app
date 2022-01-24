@@ -56,4 +56,8 @@ class TagRepositoryImpl private constructor() : TagRepository {
     override fun getTagList(): Map<String, String> {
         return redis.getHashAll(TAG_LIST)
     }
+
+    override fun getTagById(id: String): String? {
+        return TAG_MAP[id]
+    }
 }

@@ -1,5 +1,6 @@
 package infrastracture.database.redis
 
+import infrastracture.database.repository.ContentRepositoryImpl
 import redis.clients.jedis.Jedis
 
 /**
@@ -76,6 +77,22 @@ class RedisManagerImpl private constructor() : RedisManager {
 
     override fun removeSetValue(key: String, vararg member: String): Long {
         return jedis.srem(key, *member)
+    }
+
+    override fun getListAllValue(key: String): List<String> {
+        return jedis.lrange(key, 0, -1)
+    }
+
+    override fun getListValue(key: String, start: Long, end: Long): List<String> {
+        return jedis.lrange(key, start, end)
+    }
+
+    override fun setLeftListValue(key: String, vararg value: String): Long {
+        return jedis.lpush(key, *value)
+    }
+
+    override fun setRightListValue(key: String, vararg value: String): Long {
+        return jedis.rpush(key, *value)
     }
 
     override fun delete(vararg keys: String): Long {

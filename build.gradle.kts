@@ -27,6 +27,7 @@ allprojects {
  dependencies {
      implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-native-mt")
      testImplementation("io.kotest:kotest-runner-junit5-jvm:5.0.3")
+     testImplementation("io.kotest.extensions:kotest-assertions-ktor:1.0.3")
  }
 }
 
@@ -40,6 +41,7 @@ configure(listOf(project("testadmin"))) {
     version = "0.0.1"
 
     dependencies {
+        implementation(project(":testcommon"))
         implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version")
         implementation("io.ktor:ktor-server-netty:$ktor_version")
         implementation("ch.qos.logback:logback-classic:$logback_version")

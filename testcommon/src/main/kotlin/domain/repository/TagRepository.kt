@@ -13,4 +13,9 @@ interface TagRepository {
      * タグ一覧を取得.
      */
     fun getTagList(): Map<String, String>
+
+    /**
+     * idを指定してタグを取得する.
+     */
+    fun getTagById(id: String): String?
 }
