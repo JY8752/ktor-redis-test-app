@@ -27,6 +27,7 @@ allprojects {
  dependencies {
      implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0-native-mt")
      testImplementation("io.kotest:kotest-runner-junit5-jvm:5.0.3")
+     testImplementation("io.kotest.extensions:kotest-assertions-ktor:1.0.3")
  }
 }
 
