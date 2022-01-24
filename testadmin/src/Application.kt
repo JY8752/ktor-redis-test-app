@@ -8,6 +8,8 @@ import io.ktor.http.*
 import io.ktor.thymeleaf.Thymeleaf
 import io.ktor.thymeleaf.ThymeleafContent
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver
+import testadmin.application.service.ContentsService
+import testadmin.presentation.controller.topController
 
 fun main(args: Array<String>): Unit = io.ktor.server.netty.EngineMain.main(args)
 
@@ -23,14 +25,6 @@ fun Application.module(testing: Boolean = false) {
     }
 
     routing {
-        get("/") {
-            call.respond(ThymeleafContent("index", mapOf(
-                "tags" to ThymeleafUser(1, "user3"),
-                "latestContents" to ""
-            )))
-        }
+        topController()
     }
 }
-
-data class ThymeleafUser(val id: Int, val name: String)
-
